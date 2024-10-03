@@ -1,0 +1,21 @@
+import gsl = gsl%lib{gsl}
+import core = lib{mp-units-core}
+
+lib{mp-units-systems}: hxx{**} $core $gsl
+
+systems_out_pfx = [dir_path] $out_root/src/systems/include/
+systems_src_pfx = [dir_path] $src_root/src/systems/include/
+
+mp_units_options = "-DMP_UNITS_HOSTED"
+
+lib{mp-units-systems}:
+{
+    cxx.export.poptions = "-I$systems_out_pfx" "-I$systems_src_pfx" "$mp_units_options"
+    cxx.export.libs = $core $gsl
+}
+
+include/hxx{**}:
+{
+    install         = include/
+    install.subdirs = true
+}

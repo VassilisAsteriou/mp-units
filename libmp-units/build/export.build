@@ -1,6 +1,32 @@
-$out_root/
+switch $name($import.target)
 {
-  include src/
-}
+  case 'mp-units-core'
+  {
+    $out_root/
+    {
+      include src/core/
+    }
 
-export $out_root/src/$import.target
+    export $out_root/src/core/$import.target
+  }
+
+  case 'mp-units-systems'
+  {
+    $out_root/
+    {
+      include src/systems/
+    }
+
+    export $out_root/src/systems/$import.target
+  }
+
+  case 'mp-units'
+  {
+    $out_root/
+    {
+      include src/
+    }
+
+    export $out_root/src/$import.target
+  }
+}
