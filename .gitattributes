@@ -17,3 +17,8 @@
 # Use `binary` to make sure certain files are never auto-detected as text.
 #
 #*.png binary
+
+libmp-units/src/core symlink=dir
+libmp-units/src/systems symlink=dir
+libmp-units-tests/libmp-units-tests/runtime symlink=dir
+libmp-units-tests/libmp-units-tests/static symlink=dir
