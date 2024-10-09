@@ -1,33 +1,11 @@
-gsl = # Interface dependencies.
-import gsl += gsl%lib{gsl}
+import core = lib{mp-units-core}
+import systems = lib{mp-units-systems}
 
-lib{mp-units}: hxx{**} $gsl
+import gsl = gsl%lib{gsl}
 
-# Export options.
-#
-# out_pfx = [dir_path] $out_root/src/core/include/
-# src_pfx = [dir_path] $src_root/src/core/include/
-core_out_pfx    = [dir_path] $out_root/src/core/include/
-core_src_pfx    = [dir_path] $src_root/src/core/include/
-systems_out_pfx = [dir_path] $out_root/src/systems/include/
-systems_src_pfx = [dir_path] $src_root/src/systems/include/
+lib{mp-units}: $core $systems $gsl
 
 lib{mp-units}:
 {
-  cxx.export.poptions = "-I$core_out_pfx" "-I$core_src_pfx" "-I$systems_out_pfx" "-I$systems_src_pfx" "-DMP_UNITS_HOSTED"
-  cxx.export.libs = $gsl
-}
-
-# Install recreating subdirectories.
-#
-core/include/hxx{*}:
-{
-  install         = include/
-  install.subdirs = true
-}
-
-systems/include/hxx{*}:
-{
-  install         = include/
-  install.subdirs = true
+    cxx.export.libs = $core $systems $gsl
 }
