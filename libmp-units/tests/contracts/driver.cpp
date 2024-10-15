@@ -16,7 +16,7 @@ int main ()
   // This test checks that runtime checks are executed.
   // To succeed, this test must exit with SIGABRT
   // ensuring runtime checks are enabled.
-  auto previous_handler = std::signal(SIGABRT, signal_handler);
+  std::signal(SIGABRT, signal_handler);
 
   MP_UNITS_EXPECTS(false);
 
