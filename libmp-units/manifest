@@ -15,4 +15,5 @@ package-email: packaging@build2.org ; Mailing list.
 depends: * build2 >= 0.16.0
 depends: * bpkg >= 0.16.0
 depends: gsl ^4.0.0
+requires: c++20
 tests: libmp-units-tests == $
