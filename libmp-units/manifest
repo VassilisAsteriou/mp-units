@@ -12,7 +12,7 @@ changes-file: CHANGELOG.md
 url: https://github.com/mpusz/mp-units
 package-url: https://github.com/build2-packaging/mp-units
 package-email: packaging@build2.org ; Mailing list.
-requires: c++20
+requires: c++ >= 20
 depends: * build2 >= 0.16.0
 depends: * bpkg >= 0.16.0
 depends: gsl ^4.0.0
